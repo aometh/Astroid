@@ -4,7 +4,7 @@ from player import *
 def main():
 	pygame.init()
 	gameTime = pygame.time.Clock()
-	dt = 0
+	dt = gameTime.tick(60) / 1000.0 
 	framerate = 60
 
 	black = (0,0,0)
@@ -21,6 +21,7 @@ def main():
 				return
 		screen.fill(black)
 		player.draw(screen)
+		player.update(dt)
 		pygame.display.flip()
 		gameTime.tick(60)
 		
